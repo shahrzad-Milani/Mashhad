@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Detail</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/attractions}">Attractions</a></li>
+            <li><a th:href="@{/food}">Food</a></li>
+            <li><a th:href="@{/contact}">Contact & Forum</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="melat">
+    <section class="melat-form">
+        <h2>Message Detail</h2>
+
+        <!-- Display the original message -->
+        <div class="message">
+            <p>
+                <strong th:text="${message.name}"></strong> posted at
+                <span th:text="${message.messageAt}" ></span>
+            <p th:href="@{/forum/message/{id}(id=${message.id})}" th:text="${message.messageContent}"> </p>
+            </p>
+        </div>
+
+        <!-- Success or error message after posting a reply -->
+        <div th:if="${replySuccess}" class="alert alert-success">
+            <p>Your reply has been posted.</p>
+        </div>
+
+        <div th:if="${replyError}" class="alert alert-danger">
+            <p th:text="${replyError}"></p>
+        </div>
+
+        <!-- Form to post a new reply, placed above replies section -->
+        <h4>Post a Reply</h4>
+        <form th:action="@{/forum/reply/{id}(id=${message.id})}" method="post" class="contact-form">
+            <input type="text" name="name" placeholder="Your name" required />
+            <textarea name="replyContent" placeholder="Your reply" required></textarea>
+            <button type="submit">Reply</button>
+        </form>
+
+        <!-- Display replies below the form -->
+        <h3>Replies</h3>
+        <div th:each="reply : ${replies}">
+            <div class="reply">
+                <p><strong th:text="${reply.name}"></strong> replied at <span th:text="${reply.repliedAt}"></span>:</p>
+                <p th:text="${reply.replyContent}"></p>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Mashhad Forum</p>
+</footer>
+
+</body>
+</html>

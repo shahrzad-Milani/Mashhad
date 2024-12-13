@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Things to Do in Mashhad</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<header>
+  <nav>
+    <ul class="hover">
+      <li><a th:href="@{/}" >Home</a></li>
+      <li><a th:href="@{/about}">About</a></li>
+      <li><a th:href="@{/attractions}">Things to Do</a></li>
+      <li><a th:href="@{/food}">Eat & Drink</a></li>
+      <li><a th:href="@{/contact}">Contact & Forum</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- Left Section-->
+  <section class="contact-info">
+    <div class="contact-info-inside">
+      <h2>Contact Information</h2>
+      <p>If you have any questions or feedback, feel free to get in touch with us.</p>
+      <address>
+        <div class="info-item">
+          <h3>Address:</h3>
+          <p>Pirouzi 86, Mashhad, Iran</p>
+        </div>
+        <div class="info-item">
+          <h3>Phone:</h3>
+          <p>+989159151097</p>
+        </div>
+        <div class="info-item">
+          <h3>Email:</h3>
+          <p>info@mashhad.website</p>
+        </div>
+      </address>
+    </div>
+
+    <br>
+    <div class="contact-info-inside">
+      <div class="info-item">
+        <audio controls>
+          <source th:src="@{/audio/shajarian.mp3}" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    <br>
+    <div class="contact-info-inside">
+      <div class="info-item">
+        <img th:src="@{/images/koohsangi.gif}" alt="koohsangi" class="img" />
+      </div>
+    </div>
+
+    <br>
+    <div class="contact-info-inside">
+      <h3>External Links:</h3>
+      <div class="external-links">
+        <a href="https://www.iran-booking.com/en/province/mashhad" target="_blank">Book Hotels in Mashhad</a>
+      </div>
+      <div class="external-links">
+        <a href="https://persiangood.com/recipes/shole-mashhadi/" target="_blank">Sholeh Mashhadi Recipe</a>
+      </div>
+      <div class="external-links">
+        <a href="https://artmashhadevent.ir/en/" target="_blank">Upcoming Art Events</a>
+      </div>
+      <div class="external-links">
+        <a href="https://karoon.com/fal-e-hafez" target="_blank">Divination With Hafez’s Poetry</a>
+      </div>
+      <div class="external-links">
+        <a href="https://www.247backgammon.org/" target="_blank">Play Backgammon Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Right Section-->
+  <section class="forum-section">
+    <h2>Mini Forum</h2>
+
+    <!-- Contact Form to Post New Message -->
+    <section class="contact-form">
+      <form th:action="@{/forum/post}" method="post" class="forum-form">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="messageContent" rows="4" placeholder="Ask questions, share thoughts..." required></textarea>
+
+        <button type="submit">Post</button>
+      </form>
+
+      <p th:if="${param.success}" style="color: green;">Thank you for your message!</p>
+    </section>
+
+    <!-- Display Forum Messages -->
+    <div class="forum-messages">
+      <h3>Messages Posted</h3>
+
+      <div th:each="message : ${messages}" class="message" style="background-color: #f0f0f0; padding: 10px; margin-bottom: 10px;">
+        <div class="message-item">
+          <p>
+            <strong th:text="${message.name}"></strong> posted at
+            <span th:text="${message.messageAt}" ></span>
+            <br>
+            <a th:href="@{/forum/message/{id}(id=${message.id})}" th:text="${message.messageContent}"></a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 mashhad.website. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

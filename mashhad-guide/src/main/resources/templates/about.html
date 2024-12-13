@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Mashhad</title>
+  <!-- Use Thymeleaf for the CSS link -->
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<header>
+  <nav>
+    <ul class="hover">
+      <li><a th:href="@{/}" >Home</a></li>
+      <li><a th:href="@{/about}">About</a></li>
+      <li><a th:href="@{/attractions}">Things to Do</a></li>
+      <li><a th:href="@{/food}">Eat & Drink</a></li>
+      <li><a th:href="@{/contact}">Contact & Forum</a></li>
+    </ul>
+  </nav>
+</header>
+<main class="about">
+  <div class="article">
+    <iframe
+            src="https://www.worldweatheronline.com/mashhad-weather/khorasan/ir.aspx"
+            width="600"
+            height="400"
+            frameborder="0"
+    ></iframe>
+    <!-- Update image paths to use Thymeleaf -->
+    <img th:src="@{/images/map.jpg}" alt="Map" width="600" height="400" />
+    <img th:src="@{/images/Shahnameh.jpg}" alt="Shahnameh" width="600" height="400" />
+  </div>
+  <div class="p">
+    <h1>About Mashhad:</h1>
+    <hr />
+    <p>
+      Mashhad, often referred to as the "spiritual capital of Iran," is a
+      city steeped in history and cultural significance. As the
+      second-largest city in Iran and the capital of the important province
+      of Khorassan, Mashhad boasts a population of over three million people
+      and covers an expansive area. Its size and importance make it a key
+      center of commerce, religion, and culture within the country.
+    </p>
+    <p>
+      The city's history is rich and diverse, with roots dating back to
+      ancient times. Mashhad's origins can be traced to a small village that
+      grew around the tomb of Imam Reza, the eighth Imam of Shia Islam. Over
+      the centuries, it has evolved into a thriving metropolis. The Imam
+      Reza Holy Shrine, located in the heart of Mashhad, is not only a
+      spiritual center for millions of Muslims but also a stunning
+      architectural masterpiece, adorned with intricate tilework and
+      calligraphy.
+    </p>
+    <p>
+      Mashhad is also known colloquially as the city of Ferdowsi, after the
+      Iranian poet who composed the Shahnameh. The city is the hometown of
+      some of the most significant Iranian literary figures and artists,
+      such as the poet Mehdi Akhavan-Sales, and Mohammad-Reza Shajarian, the
+      traditional Iranian singer and composer. Ferdowsi and Akhavan Sales
+      are both buried in Tus, an ancient city that is considered to be the
+      main origin of the current city of Mashhad.
+    </p>
+    <p>
+      In the past, Khorasan was a crossroad for the Silk Road and presently,
+      all major air, rail, and roadway connect Mashhad to the rest of the
+      nation as well as the world.
+    </p>
+    <p>
+      Beyond its religious prominence, the city offers a vibrant cultural
+      scene with traditional bazaars, museums, and historic sites. Its
+      cuisine reflects the diversity of Iranian flavors, featuring both
+      local specialties and Persian classics.
+    </p>
+    <p>
+      Mashhad's breathtaking gardens and parks provide a serene escape from
+      the hustle and bustle of urban life. Visitors can explore the city's
+      past through its historic landmarks, gaining insights into its
+      enduring heritage. With its welcoming atmosphere and deep-rooted
+      spirituality, Mashhad is not only a city of immense historical
+      importance but also a captivating destination for travelers seeking to
+      immerse themselves in Iran's cultural tapestry.
+    </p>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2024 mashhad.website. All rights reserved.</p>
+</footer>
+</body>
+</html>
